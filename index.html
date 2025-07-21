@@ -3,151 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="title" content="All Rummy Games APK - Download Latest Rummy & Slot Apps">
-  <meta name="description" content="Download the latest and best Rummy & Slot earning apps like 365jeet. Fast UPI withdrawal.">
-  <meta name="keywords" content="rummy apk, 365jeet, slot games, upi games, earning app, rummy download">
+  <meta name="description" content="Download Rummy, Jeet, Yono & Slots Apps. Claim Sign-up Bonuses & Withdraw Winnings via UPI.">
+  <meta name="keywords" content="rummy apk, 365jeet, slots, yono game, sign up bonus, withdraw UPI, app download">
   <meta name="author" content="All Rummy Games APK">
   <title>All Rummy Games APK</title>
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" href="assets/logo.png" />
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background: #f7f7f7;
     }
-
     header {
-      background-color: #1f8b4c;
+      background-color: #1e7c1e;
+      padding: 15px;
+      text-align: center;
       color: white;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    header img {
-      height: 40px;
-    }
-
-    header h1 {
-      margin: 0 auto;
       font-size: 20px;
       font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 15px;
-      font-size: 14px;
+    header img {
+      height: 30px;
+      vertical-align: middle;
+      margin-right: 10px;
     }
-
+    main {
+      padding: 15px;
+    }
+    .app-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
     .app-card {
       background: white;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      margin: 20px auto;
-      max-width: 600px;
+      box-shadow: 0 0 10px #ccc;
+      width: 300px;
       padding: 15px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
+      text-align: center;
     }
-
     .app-card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 15px;
+      height: 64px;
+      width: 64px;
+      object-fit: contain;
+      margin-bottom: 10px;
     }
-
-    .app-info {
-      flex: 1;
-    }
-
     .app-name {
+      font-weight: bold;
       font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .app-description {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    .download-btn {
+      display: inline-block;
+      background-color: #1e7c1e;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
       font-weight: bold;
     }
-
-    .app-desc {
-      margin: 5px 0;
-      color: #555;
-      font-size: 14px;
-    }
-
-    .download-button {
-      display: inline-block;
-      margin-top: 8px;
-      background-color: #1f8b4c;
-      color: white;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
     footer {
-      background-color: #eee;
-      text-align: center;
-      padding: 12px;
-      font-size: 14px;
       margin-top: 40px;
+      padding: 20px;
+      background: #eee;
+      text-align: center;
+      font-size: 14px;
     }
-
     footer a {
       margin: 0 10px;
-      color: #333;
+      color: #1e7c1e;
       text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-      .app-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      header {
-        flex-direction: column;
-        align-items: center;
-      }
-      header h1 {
-        font-size: 18px;
-        margin-top: 10px;
-      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="logo.png" alt="Site Logo">
-    <h1>All Rummy Games APK</h1>
-    <nav>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="disclaimer.html">Disclaimer</a>
-    </nav>
+    <img src="assets/logo.png" alt="Logo" />
+    All Rummy Games APK
   </header>
 
   <main>
-    <div class="app-card">
-      <img src="365jeet.png" alt="365jeet Icon" />
-      <div class="app-info">
-        <div class="app-name">365Jeet</div>
-        <div class="app-desc">🎁 Signup bonus up to ₹59<br>🏦 Minimum withdrawal ₹100 via UPI</div>
-        <a class="download-button" href="https://www.1365jeet.com/?agentid=214178964" target="_blank">Download</a>
-      </div>
+    <div class="app-list" id="appList">
+      <!-- Apps will be loaded here -->
     </div>
   </main>
 
   <footer>
     <a href="about.html">About</a> |
+    <a href="terms.html">Terms</a> |
     <a href="privacy.html">Privacy</a> |
-    <a href="terms.html">Terms & Conditions</a> |
     <a href="disclaimer.html">Disclaimer</a><br><br>
-    © 2025 All Rummy Games APK
+    &copy; 2025 All Rummy Games APK
   </footer>
 
+  <script>
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        const appList = document.getElementById('appList');
+        data.forEach(app => {
+          const card = document.createElement('div');
+          card.className = 'app-card';
+          card.innerHTML = `
+            <img src="${app.icon}" alt="${app.name} icon">
+            <div class="app-name">${app.name}</div>
+            <div class="app-description">${app.bonus}<br>${app.withdraw}</div>
+            <a class="download-btn" href="${app.link}" target="_blank">Download</a>
+          `;
+          appList.appendChild(card);
+        });
+      });
+  </script>
 </body>
 </html>
