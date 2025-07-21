@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All Rummy Games APK</title>
   <meta name="description" content="Download rummy, slot & teen patti apps with bonuses and fast withdrawal." />
-  <link rel="icon" href="assets/favicon.png" />
+  <link rel="icon" href="assets/logo.png" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <!-- Centered Header -->
+  <!-- Centered Header with perfectly aligned logo + title -->
   <header class="bg-green-600 text-white py-4 shadow-md">
-    <div class="flex justify-center items-center">
-      <img src="assets/logo.png" alt="Logo" class="h-10 w-10 rounded-full mr-2" />
+    <div class="flex justify-center items-center space-x-3">
+      <img src="assets/logo.png" alt="Logo" class="h-10 w-10 rounded-full" />
       <h1 class="text-xl font-bold">All Rummy Games APK</h1>
     </div>
   </header>
 
-  <!-- Info Strip -->
+  <!-- New Info Strip Text -->
   <div class="bg-green-100 text-green-800 p-2 text-center font-medium">
-    🎁 Signup Bonus ₹59+ | 🏦 Withdraw ₹100+ via UPI
+    🎮 Play the Best Rummy & Slot Games and Win Real Cash!
   </div>
 
   <!-- App List -->
@@ -28,7 +28,7 @@
     <div id="app-list" class="space-y-4"></div>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer Links -->
   <footer class="bg-gray-800 text-white text-center py-4 text-sm space-x-2">
     <a href="about.html" class="hover:underline">About</a>
     <a href="terms.html" class="hover:underline">Terms</a>
@@ -37,7 +37,7 @@
     <div class="mt-2 text-gray-400">© 2025 All Rummy Games APK</div>
   </footer>
 
-  <!-- App Loader -->
+  <!-- App Loader Script -->
   <script>
     fetch('data.json')
       .then(r => r.json())
@@ -51,8 +51,8 @@
             <div class="flex items-center space-x-4">
               <div class="text-gray-500 text-lg font-semibold">${i+1}.</div>
               <img src="${app.icon}" alt="${app.name}" class="w-12 h-12 rounded-md border" />
-              <div>
-                <div class="font-semibold text-gray-900">${app.name}</div>
+              <div class="flex flex-col justify-center">
+                <div class="font-bold text-gray-900">${app.name}</div>
                 <div class="text-sm text-green-600">${app.bonus}</div>
                 <div class="text-sm text-gray-700">${app.withdraw}</div>
               </div>
