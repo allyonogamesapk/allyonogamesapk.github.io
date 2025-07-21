@@ -1,9 +1,9 @@
 [
   {
     "name": "365Jeet",
-    "icon": "365jeet.png",
+    "icon": "assets/365jeet.png",
+    "link": "https://www.1365jeet.com/?agentid=214178964",
     "bonus": "🎁 Signup Bonus ₹59",
-    "withdraw": "🏦 Minimum Withdrawal ₹100 via UPI",
-    "link": "https://www.1365jeet.com/?agentid=214178964"
+    "withdraw": "🏦 Min Withdrawal ₹100 via UPI"
   }
 ]
