@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Download the best Rummy and Slots apps with signup bonuses. UPI withdrawals supported.">
-  <meta name="keywords" content="rummy apk, slots games, 365jeet download, yono games, upi cash games, best rummy apps">
+  <meta name="description" content="Download top Rummy and Slot games with real cash bonus and UPI withdrawals.">
+  <meta name="keywords" content="rummy apk, 365jeet download, cash games, slot games, upi rummy app">
   <meta name="author" content="All Rummy Games APK">
   <meta property="og:title" content="All Rummy Games APK">
-  <meta property="og:description" content="Top Rummy, Slots & Casino Games with UPI Withdrawals">
+  <meta property="og:description" content="Best Rummy & Slot Games. Sign up and withdraw via UPI!">
   <meta property="og:image" content="logo.png">
   <meta name="robots" content="index, follow">
   <title>All Rummy Games APK</title>
@@ -18,12 +18,12 @@
   <!-- Header -->
   <header class="bg-green-600 py-4 shadow">
     <div class="container mx-auto px-4 flex items-center justify-center">
-      <img src="logo.png" alt="Logo" class="w-10 h-10 mr-3 rounded">
+      <img src="logo.png" alt="Site Logo" class="w-10 h-10 mr-3 rounded-full border border-white shadow" />
       <h1 class="text-white text-2xl font-bold">All Rummy Games APK</h1>
     </div>
   </header>
 
-  <!-- App List Container -->
+  <!-- App Listing -->
   <main class="container mx-auto px-4 py-6">
     <div id="app-list" class="space-y-4"></div>
   </main>
@@ -39,25 +39,25 @@
     <p class="mt-2">© 2025 All Rummy Games APK</p>
   </footer>
 
-  <!-- Script -->
+  <!-- App Load Script -->
   <script>
     fetch('data.json')
       .then(response => response.json())
       .then(apps => {
         const appList = document.getElementById('app-list');
-        apps.forEach((app, i) => {
+        apps.forEach(app => {
           const row = document.createElement('div');
-          row.className = 'bg-white p-4 rounded-lg shadow flex items-center justify-between';
+          row.className = 'bg-white p-4 rounded-lg shadow grid grid-cols-3 sm:grid-cols-4 items-center gap-4';
           row.innerHTML = `
-            <div class="flex items-center space-x-4">
-              <img src="${app.icon}" alt="${app.name}" class="w-12 h-12 rounded-md border object-cover" />
-              <div>
-                <div class="text-base font-bold text-gray-900">${app.name}</div>
-                <div class="text-sm text-green-600">${app.bonus}</div>
-                <div class="text-sm text-gray-700">${app.withdraw}</div>
-              </div>
+            <img src="${app.icon}" alt="${app.name}" class="w-14 h-14 rounded-md border object-cover" />
+            <div class="col-span-2">
+              <div class="text-lg font-bold text-gray-900">${app.name}</div>
+              <div class="text-sm text-green-600">${app.bonus}</div>
+              <div class="text-sm text-gray-700">${app.withdraw}</div>
             </div>
-            <a href="${app.link}" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Download</a>
+            <div class="text-right">
+              <a href="${app.link}" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">Download</a>
+            </div>
           `;
           appList.appendChild(row);
         });
