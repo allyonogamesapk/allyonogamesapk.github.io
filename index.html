@@ -3,126 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Download Rummy, Jeet, Yono & Slots Apps. Claim Sign-up Bonuses & Withdraw Winnings via UPI.">
-  <meta name="keywords" content="rummy apk, 365jeet, slots, yono game, sign up bonus, withdraw UPI, app download">
-  <meta name="author" content="All Rummy Games APK">
+  <meta name="description" content="Download the latest Rummy & Slot APKs like 365Jeet. Sign‑up bonuses, UPI withdraw, play & win!" />
+  <meta name="keywords" content="rummy apk, 365jeet download, slot game, upi rummy, gaming apk" />
   <title>All Rummy Games APK</title>
-  <link rel="icon" href="assets/logo.png" />
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-    }
-    header {
-      background-color: #1e7c1e;
-      padding: 15px;
-      text-align: center;
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header img {
-      height: 30px;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-    main {
-      padding: 15px;
-    }
-    .app-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .app-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
-      width: 300px;
-      padding: 15px;
-      text-align: center;
-    }
-    .app-card img {
-      height: 64px;
-      width: 64px;
-      object-fit: contain;
-      margin-bottom: 10px;
-    }
-    .app-name {
-      font-weight: bold;
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-    .app-description {
-      font-size: 14px;
-      color: #444;
-      margin-bottom: 10px;
-    }
-    .download-btn {
-      display: inline-block;
-      background-color: #1e7c1e;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    footer {
-      margin-top: 40px;
-      padding: 20px;
-      background: #eee;
-      text-align: center;
-      font-size: 14px;
-    }
-    footer a {
-      margin: 0 10px;
-      color: #1e7c1e;
-      text-decoration: none;
-    }
-  </style>
+  <link rel="icon" href="assets/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <img src="assets/logo.png" alt="Logo" />
-    All Rummy Games APK
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- HEADER -->
+  <header class="bg-green-600 text-white">
+    <div class="flex items-center justify-between container mx-auto px-4 py-3">
+      <button id="menu-btn" class="md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <img src="assets/logo.png" alt="Logo" class="h-10 w-10 rounded-full border border-white shadow-md" />
+      <h1 class="text-xl font-bold">All Rummy Games APK</h1>
+      <div class="w-6"></div>
+    </div>
+
+    <nav id="sidebar" class="hidden md:block bg-green-700">
+      <ul class="container mx-auto px-4 py-2 flex md:space-x-6">
+        <li><a href="about.html" class="hover:underline">About</a></li>
+        <li><a href="terms.html" class="hover:underline">Terms</a></li>
+        <li><a href="privacy.html" class="hover:underline">Privacy</a></li>
+        <li><a href="disclaimer.html" class="hover:underline">Disclaimer</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <div class="app-list" id="appList">
-      <!-- Apps will be loaded here -->
-    </div>
+  <!-- MAIN CONTENT -->
+  <main class="container mx-auto px-4 py-6">
+    <h2 class="text-lg font-semibold mb-4">Available Apps</h2>
+    <div id="app-list" class="space-y-4"></div>
   </main>
 
-  <footer>
-    <a href="about.html">About</a> |
-    <a href="terms.html">Terms</a> |
-    <a href="privacy.html">Privacy</a> |
-    <a href="disclaimer.html">Disclaimer</a><br><br>
-    &copy; 2025 All Rummy Games APK
+  <!-- FOOTER -->
+  <footer class="bg-gray-200 text-center py-4 text-sm text-gray-600">
+    <div class="space-x-4">
+      <a href="about.html">About</a> |
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+    <div class="mt-2">© 2025 All Rummy Games APK</div>
   </footer>
 
+  <!-- SCRIPT -->
   <script>
+    document.getElementById('menu-btn').onclick = () => {
+      const sb = document.getElementById('sidebar');
+      sb.classList.toggle('hidden');
+    };
+
     fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        const appList = document.getElementById('appList');
-        data.forEach(app => {
-          const card = document.createElement('div');
-          card.className = 'app-card';
-          card.innerHTML = `
-            <img src="${app.icon}" alt="${app.name} icon">
-            <div class="app-name">${app.name}</div>
-            <div class="app-description">${app.bonus}<br>${app.withdraw}</div>
-            <a class="download-btn" href="${app.link}" target="_blank">Download</a>
-          `;
-          appList.appendChild(card);
+      .then(r => r.json())
+      .then(apps => {
+        const list = document.getElementById('app-list');
+        list.innerHTML = '';
+        apps.forEach((app, i) => {
+          const c = document.createElement('div');
+          c.className = 'bg-white p-4 rounded-lg shadow flex items-center justify-between';
+          c.innerHTML = `
+            <div class="flex items-center space-x-4">
+              <span class="font-bold">${i+1}.</span>
+              <img src="${app.icon}" alt="${app.name}" class="w-14 h-14 rounded-md object-cover">
+              <div>
+                <div class="font-semibold">${app.name}</div>
+                <div class="text-green-600 text-sm">${app.bonus}</div>
+                <div class="text-gray-700 text-sm">${app.withdraw}</div>
+              </div>
+            </div>
+            <a href="${app.link}" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+              Download
+            </a>`;
+          list.appendChild(c);
         });
-      });
+      })
+      .catch(err => console.error(err));
   </script>
+
 </body>
 </html>
