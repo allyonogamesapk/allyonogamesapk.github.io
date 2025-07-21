@@ -3,66 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All Rummy Games APK | Download Latest Rummy Apps</title>
-  <meta name="description" content="Download all the latest Rummy games APKs. Safe, verified, and regularly updated Rummy apps with bonus and withdrawal information." />
-  <meta name="keywords" content="rummy apk, download rummy app, rummy games, real cash rummy, rummy earning apps, rummy game download" />
-  <meta name="author" content="All Rummy Games APK" />
-  <link rel="canonical" href="https://maxel692004.github.io/" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="All Rummy Games APK" />
-  <meta property="og:description" content="Download all latest Rummy apps. Get bonus, play & withdraw real cash. No login needed." />
-  <meta property="og:url" content="https://maxel692004.github.io/" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#22c55e" />
+  <title>All Rummy Games APK</title>
+  <meta name="description" content="Download rummy, slot & teen patti apps with bonuses and fast withdrawal." />
   <link rel="icon" href="assets/favicon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
-  <header class="bg-green-600 text-white py-4 shadow-md">
-    <div class="container mx-auto px-4 flex justify-between items-center">
+
+  <!-- Header -->
+  <header class="bg-green-600 text-white p-4 flex items-center justify-between shadow">
+    <div class="flex items-center">
+      <img src="assets/logo.png" alt="Logo" class="h-10 w-10 rounded-full mr-2" />
       <h1 class="text-xl font-bold">All Rummy Games APK</h1>
-      <nav class="space-x-4 text-sm">
-        <a href="about.html" class="hover:underline">About</a>
-        <a href="terms.html" class="hover:underline">Terms</a>
-        <a href="privacy.html" class="hover:underline">Privacy</a>
-        <a href="disclaimer.html" class="hover:underline">Disclaimer</a>
-      </nav>
     </div>
+    <nav class="space-x-4">
+      <a href="about.html" class="hover:underline">About</a>
+      <a href="terms.html" class="hover:underline">Terms</a>
+      <a href="privacy.html" class="hover:underline">Privacy</a>
+      <a href="disclaimer.html" class="hover:underline">Disclaimer</a>
+    </nav>
   </header>
 
-  <main class="container mx-auto px-4 py-8">
-    <h2 class="text-2xl font-semibold mb-4">Top Rummy Apps to Download</h2>
-    <div id="app-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  <!-- Info Strip -->
+  <div class="bg-green-100 text-green-800 p-2 text-center font-medium">
+    🎁 Signup Bonus ₹59+ | 🏦 Withdraw ₹100+ via UPI
+  </div>
+
+  <!-- App List -->
+  <main class="max-w-3xl mx-auto p-4">
+    <div id="app-list" class="space-y-4"></div>
   </main>
 
-  <footer class="bg-gray-800 text-white text-sm text-center py-4">
-    &copy; 2025 AllRummyGamesAPK | 
-    <a href="about.html" class="underline">About</a> |
-    <a href="terms.html" class="underline">Terms</a> |
-    <a href="privacy.html" class="underline">Privacy</a> |
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-4">
+    © 2025 All Rummy Games APK ·
+    <a href="about.html" class="underline">About</a> ·
+    <a href="terms.html" class="underline">Terms</a> ·
+    <a href="privacy.html" class="underline">Privacy</a> ·
     <a href="disclaimer.html" class="underline">Disclaimer</a>
   </footer>
 
+  <!-- App Loader -->
   <script>
     fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        const appList = document.getElementById('app-list');
-        data.forEach(app => {
-          const card = document.createElement('div');
-          card.className = "bg-white rounded-lg shadow p-4";
-
-          card.innerHTML = `
-            <img src="${app.icon}" alt="${app.name}" class="w-16 h-16 rounded-full mb-2">
-            <h3 class="text-lg font-bold">${app.name}</h3>
-            <p class="text-sm mb-1">💰 Bonus: ₹${app.bonus}</p>
-            <p class="text-sm mb-3">🏦 Min Withdraw: ₹${app.withdraw}</p>
-            <a href="${app.link}" class="inline-block bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600 text-sm" target="_blank" rel="noopener">Download</a>
-          `;
-
-          appList.appendChild(card);
-        });
-      });
+      .then(r => r.json())
+      .then(apps => {
+        const list = document.getElementById('app-list')
+        list.innerHTML = ''
+        apps.forEach((app, i) => {
+          const row = document.createElement('div')
+          row.className = 'bg-white shadow-md rounded-lg p-4 flex items-center justify-between hover:shadow-lg transition'
+          row.innerHTML = `
+            <div class="flex items-center space-x-4">
+              <div class="text-gray-500 text-lg font-semibold">${i+1}.</div>
+              <img src="${app.icon}" alt="${app.name}" class="w-12 h-12 rounded-md border" />
+              <div>
+                <div class="font-semibold text-gray-900">${app.name}</div>
+                <div class="text-sm text-green-600">${app.bonus}</div>
+                <div class="text-sm text-gray-700">${app.withdraw}</div>
+              </div>
+            </div>
+            <a href="${app.link}" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Download</a>
+          `
+          list.appendChild(row)
+        })
+      })
+      .catch(() => {
+        document.getElementById('app-list').innerHTML = `<p class="text-center text-red-500">Failed to load apps.</p>`
+      })
   </script>
 </body>
 </html>
