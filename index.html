@@ -2,69 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Download the best Rummy and Slots apps with signup bonuses. UPI withdrawals supported.">
+  <meta name="keywords" content="rummy apk, slots games, 365jeet download, yono games, upi cash games, best rummy apps">
+  <meta name="author" content="All Rummy Games APK">
+  <meta property="og:title" content="All Rummy Games APK">
+  <meta property="og:description" content="Top Rummy, Slots & Casino Games with UPI Withdrawals">
+  <meta property="og:image" content="logo.png">
+  <meta name="robots" content="index, follow">
   <title>All Rummy Games APK</title>
-  <meta name="description" content="Download rummy, slot & teen patti apps with bonuses and fast withdrawal." />
-  <link rel="icon" href="assets/logo.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <!-- Centered Header with perfectly aligned logo + title -->
-  <header class="bg-green-600 text-white py-4 shadow-md">
-    <div class="flex justify-center items-center space-x-3">
-      <img src="assets/logo.png" alt="Logo" class="h-10 w-10 rounded-full" />
-      <h1 class="text-xl font-bold">All Rummy Games APK</h1>
+  <!-- Header -->
+  <header class="bg-green-600 py-4 shadow">
+    <div class="container mx-auto px-4 flex items-center justify-center">
+      <img src="logo.png" alt="Logo" class="w-10 h-10 mr-3 rounded">
+      <h1 class="text-white text-2xl font-bold">All Rummy Games APK</h1>
     </div>
   </header>
 
-  <!-- New Info Strip Text -->
-  <div class="bg-green-100 text-green-800 p-2 text-center font-medium">
-    🎮 Play the Best Rummy & Slot Games and Win Real Cash!
-  </div>
-
-  <!-- App List -->
-  <main class="max-w-3xl mx-auto p-4">
+  <!-- App List Container -->
+  <main class="container mx-auto px-4 py-6">
     <div id="app-list" class="space-y-4"></div>
   </main>
 
-  <!-- Footer Links -->
-  <footer class="bg-gray-800 text-white text-center py-4 text-sm space-x-2">
-    <a href="about.html" class="hover:underline">About</a>
-    <a href="terms.html" class="hover:underline">Terms</a>
-    <a href="privacy.html" class="hover:underline">Privacy</a>
-    <a href="disclaimer.html" class="hover:underline">Disclaimer</a>
-    <div class="mt-2 text-gray-400">© 2025 All Rummy Games APK</div>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center text-sm py-6">
+    <div class="space-x-4">
+      <a href="about.html" class="hover:underline">About</a>
+      <a href="terms.html" class="hover:underline">Terms</a>
+      <a href="privacy.html" class="hover:underline">Privacy</a>
+      <a href="disclaimer.html" class="hover:underline">Disclaimer</a>
+    </div>
+    <p class="mt-2">© 2025 All Rummy Games APK</p>
   </footer>
 
-  <!-- App Loader Script -->
+  <!-- Script -->
   <script>
     fetch('data.json')
-      .then(r => r.json())
+      .then(response => response.json())
       .then(apps => {
-        const list = document.getElementById('app-list')
-        list.innerHTML = ''
+        const appList = document.getElementById('app-list');
         apps.forEach((app, i) => {
-          const row = document.createElement('div')
-          row.className = 'bg-white shadow-md rounded-lg p-4 flex items-center justify-between hover:shadow-lg transition'
+          const row = document.createElement('div');
+          row.className = 'bg-white p-4 rounded-lg shadow flex items-center justify-between';
           row.innerHTML = `
             <div class="flex items-center space-x-4">
-              <div class="text-gray-500 text-lg font-semibold">${i+1}.</div>
-              <img src="${app.icon}" alt="${app.name}" class="w-12 h-12 rounded-md border" />
-              <div class="flex flex-col justify-center">
-                <div class="font-bold text-gray-900">${app.name}</div>
+              <img src="${app.icon}" alt="${app.name}" class="w-12 h-12 rounded-md border object-cover" />
+              <div>
+                <div class="text-base font-bold text-gray-900">${app.name}</div>
                 <div class="text-sm text-green-600">${app.bonus}</div>
                 <div class="text-sm text-gray-700">${app.withdraw}</div>
               </div>
             </div>
             <a href="${app.link}" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Download</a>
-          `
-          list.appendChild(row)
-        })
+          `;
+          appList.appendChild(row);
+        });
       })
-      .catch(() => {
-        document.getElementById('app-list').innerHTML = `<p class="text-center text-red-500">Failed to load apps.</p>`
-      })
+      .catch(error => {
+        document.getElementById('app-list').innerHTML = '<p class="text-red-600">Failed to load apps.</p>';
+        console.error('Error loading apps:', error);
+      });
   </script>
 </body>
 </html>
