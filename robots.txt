@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://allyonogamesapk.github.io/sitemap.xml
